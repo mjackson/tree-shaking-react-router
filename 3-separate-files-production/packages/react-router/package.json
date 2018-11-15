@@ -1,0 +1,5 @@
+{
+  "name": "react-router",
+  "module": "esm/index.js",
+  "sideEffects": false
+}
