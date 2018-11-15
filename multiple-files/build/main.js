@@ -1,249 +1,172 @@
-!(function(e) {
-  var t = {};
+!(function(t) {
+  var e = {};
   function n(r) {
-    if (t[r]) return t[r].exports;
-    var o = (t[r] = { i: r, l: !1, exports: {} });
-    return e[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
+    if (e[r]) return e[r].exports;
+    var o = (e[r] = { i: r, l: !1, exports: {} });
+    return t[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
   }
-  (n.m = e),
-    (n.c = t),
-    (n.d = function(e, t, r) {
-      n.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: r });
+  (n.m = t),
+    (n.c = e),
+    (n.d = function(t, e, r) {
+      n.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: r });
     }),
-    (n.r = function(e) {
+    (n.r = function(t) {
       "undefined" != typeof Symbol &&
         Symbol.toStringTag &&
-        Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
-        Object.defineProperty(e, "__esModule", { value: !0 });
+        Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
+        Object.defineProperty(t, "__esModule", { value: !0 });
     }),
-    (n.t = function(e, t) {
-      if ((1 & t && (e = n(e)), 8 & t)) return e;
-      if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+    (n.t = function(t, e) {
+      if ((1 & e && (t = n(t)), 8 & e)) return t;
+      if (4 & e && "object" == typeof t && t && t.__esModule) return t;
       var r = Object.create(null);
       if (
         (n.r(r),
-        Object.defineProperty(r, "default", { enumerable: !0, value: e }),
-        2 & t && "string" != typeof e)
+        Object.defineProperty(r, "default", { enumerable: !0, value: t }),
+        2 & e && "string" != typeof t)
       )
-        for (var o in e)
+        for (var o in t)
           n.d(
             r,
             o,
-            function(t) {
-              return e[t];
+            function(e) {
+              return t[e];
             }.bind(null, o)
           );
       return r;
     }),
-    (n.n = function(e) {
-      var t =
-        e && e.__esModule
+    (n.n = function(t) {
+      var e =
+        t && t.__esModule
           ? function() {
-              return e.default;
+              return t.default;
             }
           : function() {
-              return e;
+              return t;
             };
-      return n.d(t, "a", t), t;
+      return n.d(e, "a", e), e;
     }),
-    (n.o = function(e, t) {
-      return Object.prototype.hasOwnProperty.call(e, t);
+    (n.o = function(t, e) {
+      return Object.prototype.hasOwnProperty.call(t, e);
     }),
     (n.p = ""),
     n((n.s = 2));
 })([
-  function(e, t) {
-    e.exports = React;
+  function(t, e) {
+    t.exports = React;
   },
-  function(e, t) {
-    e.exports = ReactDOM;
+  function(t, e) {
+    t.exports = ReactDOM;
   },
-  function(e, t, n) {
+  function(t, e, n) {
     "use strict";
-    n.r(t);
+    n.r(e);
     var r = n(0),
       o = n.n(r),
       u = n(1),
-      i = n.n(u);
-    function c(e) {
-      return (c =
-        "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-          ? function(e) {
-              return typeof e;
-            }
-          : function(e) {
-              return e &&
-                "function" == typeof Symbol &&
-                e.constructor === Symbol &&
-                e !== Symbol.prototype
-                ? "symbol"
-                : typeof e;
-            })(e);
-    }
-    function f(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var r = t[n];
-        (r.enumerable = r.enumerable || !1),
-          (r.configurable = !0),
-          "value" in r && (r.writable = !0),
-          Object.defineProperty(e, r.key, r);
-      }
-    }
-    function l(e, t) {
-      return !t || ("object" !== c(t) && "function" != typeof t)
-        ? (function(e) {
-            if (void 0 === e)
-              throw new ReferenceError(
-                "this hasn't been initialised - super() hasn't been called"
-              );
-            return e;
-          })(e)
-        : t;
-    }
-    function a(e) {
-      return (a = Object.setPrototypeOf
-        ? Object.getPrototypeOf
-        : function(e) {
-            return e.__proto__ || Object.getPrototypeOf(e);
-          })(e);
-    }
-    function p(e, t) {
-      return (p =
-        Object.setPrototypeOf ||
-        function(e, t) {
-          return (e.__proto__ = t), e;
-        })(e, t);
-    }
-    var y = (function(e) {
-      function t(e) {
+      c = n.n(u);
+    var i = (function(t) {
+      function e(e) {
         var n;
-        return (
-          (function(e, t) {
-            if (!(e instanceof t))
-              throw new TypeError("Cannot call a class as a function");
-          })(this, t),
-          ((n = l(this, a(t).call(this, e))).history = "browser"),
-          n
-        );
+        return ((n = t.call(this, e) || this).history = "browser"), n;
       }
       return (
-        (function(e, t) {
-          if ("function" != typeof t && null !== t)
-            throw new TypeError(
-              "Super expression must either be null or a function"
-            );
-          (e.prototype = Object.create(t && t.prototype, {
-            constructor: { value: e, writable: !0, configurable: !0 }
-          })),
-            t && p(e, t);
-        })(t, o.a.Component),
-        (function(e, t, n) {
-          t && f(e.prototype, t), n && f(e, n);
-        })(t, [
-          {
-            key: "render",
-            value: function() {
-              return o.a.createElement("p", null, "Browser Router");
-            }
-          }
-        ]),
-        t
+        (function(t, e) {
+          (t.prototype = Object.create(e.prototype)),
+            (t.prototype.constructor = t),
+            (t.__proto__ = e);
+        })(e, t),
+        (e.prototype.render = function() {
+          return o.a.createElement("p", null, "Browser Router");
+        }),
+        e
       );
-    })();
-    !(function(e, t, n) {
-      t in e
-        ? Object.defineProperty(e, t, {
-            value: n,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0
-          })
-        : (e[t] = n);
-    })(y, "propTypes", {});
-    var b = y;
-    function s(e) {
-      return (s =
+    })(o.a.Component);
+    i.propTypes = {};
+    var f = i;
+    function a(t) {
+      return (a =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-          ? function(e) {
-              return typeof e;
+          ? function(t) {
+              return typeof t;
             }
-          : function(e) {
-              return e &&
+          : function(t) {
+              return t &&
                 "function" == typeof Symbol &&
-                e.constructor === Symbol &&
-                e !== Symbol.prototype
+                t.constructor === Symbol &&
+                t !== Symbol.prototype
                 ? "symbol"
-                : typeof e;
-            })(e);
+                : typeof t;
+            })(t);
     }
-    function m(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var r = t[n];
+    function l(t, e) {
+      for (var n = 0; n < e.length; n++) {
+        var r = e[n];
         (r.enumerable = r.enumerable || !1),
           (r.configurable = !0),
           "value" in r && (r.writable = !0),
-          Object.defineProperty(e, r.key, r);
+          Object.defineProperty(t, r.key, r);
       }
     }
-    function d(e, t) {
-      return !t || ("object" !== s(t) && "function" != typeof t)
-        ? (function(e) {
-            if (void 0 === e)
+    function p(t, e) {
+      return !e || ("object" !== a(e) && "function" != typeof e)
+        ? (function(t) {
+            if (void 0 === t)
               throw new ReferenceError(
                 "this hasn't been initialised - super() hasn't been called"
               );
-            return e;
-          })(e)
-        : t;
+            return t;
+          })(t)
+        : e;
     }
-    function O(e) {
-      return (O = Object.setPrototypeOf
+    function y(t) {
+      return (y = Object.setPrototypeOf
         ? Object.getPrototypeOf
-        : function(e) {
-            return e.__proto__ || Object.getPrototypeOf(e);
-          })(e);
+        : function(t) {
+            return t.__proto__ || Object.getPrototypeOf(t);
+          })(t);
     }
-    function v(e, t) {
-      return (v =
+    function s(t, e) {
+      return (s =
         Object.setPrototypeOf ||
-        function(e, t) {
-          return (e.__proto__ = t), e;
-        })(e, t);
+        function(t, e) {
+          return (t.__proto__ = e), t;
+        })(t, e);
     }
-    var h = (function(e) {
-      function t() {
+    var b = (function(t) {
+      function e() {
         return (
-          (function(e, t) {
-            if (!(e instanceof t))
+          (function(t, e) {
+            if (!(t instanceof e))
               throw new TypeError("Cannot call a class as a function");
-          })(this, t),
-          d(this, O(t).apply(this, arguments))
+          })(this, e),
+          p(this, y(e).apply(this, arguments))
         );
       }
       return (
-        (function(e, t) {
-          if ("function" != typeof t && null !== t)
+        (function(t, e) {
+          if ("function" != typeof e && null !== e)
             throw new TypeError(
               "Super expression must either be null or a function"
             );
-          (e.prototype = Object.create(t && t.prototype, {
-            constructor: { value: e, writable: !0, configurable: !0 }
+          (t.prototype = Object.create(e && e.prototype, {
+            constructor: { value: t, writable: !0, configurable: !0 }
           })),
-            t && v(e, t);
-        })(t, o.a.Component),
-        (function(e, t, n) {
-          t && m(e.prototype, t), n && m(e, n);
-        })(t, [
+            e && s(t, e);
+        })(e, o.a.Component),
+        (function(t, e, n) {
+          e && l(t.prototype, e), n && l(t, n);
+        })(e, [
           {
             key: "render",
             value: function() {
-              return o.a.createElement(b, null);
+              return o.a.createElement(f, null);
             }
           }
         ]),
-        t
+        e
       );
     })();
-    i.a.render(o.a.createElement(h, null), document.getElementById("app"));
+    c.a.render(o.a.createElement(b, null), document.getElementById("app"));
   }
 ]);
