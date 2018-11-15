@@ -83,9 +83,27 @@
       );
     })(o.a.Component);
     i.propTypes = {};
-    var f = i;
-    function a(t) {
-      return (a =
+    var p = i;
+    var f = (function(t) {
+      function e() {
+        return t.apply(this, arguments) || this;
+      }
+      return (
+        (function(t, e) {
+          (t.prototype = Object.create(e.prototype)),
+            (t.prototype.constructor = t),
+            (t.__proto__ = e);
+        })(e, t),
+        (e.prototype.render = function() {
+          return o.a.createElement("p", null, "Route");
+        }),
+        e
+      );
+    })(o.a.Component);
+    f.propTypes = {};
+    var a = f;
+    function l(t) {
+      return (l =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
           ? function(t) {
               return typeof t;
@@ -99,7 +117,7 @@
                 : typeof t;
             })(t);
     }
-    function l(t, e) {
+    function y(t, e) {
       for (var n = 0; n < e.length; n++) {
         var r = e[n];
         (r.enumerable = r.enumerable || !1),
@@ -108,8 +126,8 @@
           Object.defineProperty(t, r.key, r);
       }
     }
-    function p(t, e) {
-      return !e || ("object" !== a(e) && "function" != typeof e)
+    function s(t, e) {
+      return !e || ("object" !== l(e) && "function" != typeof e)
         ? (function(t) {
             if (void 0 === t)
               throw new ReferenceError(
@@ -119,28 +137,28 @@
           })(t)
         : e;
     }
-    function y(t) {
-      return (y = Object.setPrototypeOf
+    function b(t) {
+      return (b = Object.setPrototypeOf
         ? Object.getPrototypeOf
         : function(t) {
             return t.__proto__ || Object.getPrototypeOf(t);
           })(t);
     }
-    function s(t, e) {
-      return (s =
+    function d(t, e) {
+      return (d =
         Object.setPrototypeOf ||
         function(t, e) {
           return (t.__proto__ = e), t;
         })(t, e);
     }
-    var b = (function(t) {
+    var m = (function(t) {
       function e() {
         return (
           (function(t, e) {
             if (!(t instanceof e))
               throw new TypeError("Cannot call a class as a function");
           })(this, e),
-          p(this, y(e).apply(this, arguments))
+          s(this, b(e).apply(this, arguments))
         );
       }
       return (
@@ -152,22 +170,22 @@
           (t.prototype = Object.create(e && e.prototype, {
             constructor: { value: t, writable: !0, configurable: !0 }
           })),
-            e && s(t, e);
+            e && d(t, e);
         })(e, o.a.Component),
         (function(t, e, n) {
-          e && l(t.prototype, e), n && l(t, n);
+          e && y(t.prototype, e), n && y(t, n);
         })(e, [
           {
             key: "render",
             value: function() {
-              return o.a.createElement(f, null);
+              return o.a.createElement(p, null, o.a.createElement(a, null));
             }
           }
         ]),
         e
       );
     })();
-    c.a.render(o.a.createElement(b, null), document.getElementById("app"));
+    c.a.render(o.a.createElement(m, null), document.getElementById("app"));
   }
 ]);
 //# sourceMappingURL=main.js.map

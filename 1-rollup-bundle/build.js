@@ -19,7 +19,4 @@ exec(bin('rollup') + ' -c');
 // Bundle the app
 exec(bin('webpack') + ' --output-path "build" --output-filename "main.js"');
 
-// Prettify the app bundle
-exec(bin('prettier') + ' --write "build/main.js"');
-
 process.chdir(cwd);

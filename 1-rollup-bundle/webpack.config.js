@@ -1,7 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
+  devtool: 'source-map',
+  optimization: { usedExports: true },
   entry: path.resolve(__dirname, 'app.js'),
   externals: { react: 'React', 'react-dom': 'ReactDOM' },
   resolve: {

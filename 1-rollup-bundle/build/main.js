@@ -1,185 +1,308 @@
-!(function(t) {
-  var e = {};
-  function n(r) {
-    if (e[r]) return e[r].exports;
-    var o = (e[r] = { i: r, l: !1, exports: {} });
-    return t[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./app.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":
+/*!*******************************************************************!*\
+  !*** ../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _inheritsLoose; });
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+/***/ }),
+
+/***/ "./app.js":
+/*!****************!*\
+  !*** ./app.js ***!
+  \****************/
+/*! no exports provided */
+/*! all exports used */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./packages/react-router/react-router.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var MyApp =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MyApp, _React$Component);
+
+  function MyApp() {
+    _classCallCheck(this, MyApp);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MyApp).apply(this, arguments));
   }
-  (n.m = t),
-    (n.c = e),
-    (n.d = function(t, e, r) {
-      n.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: r });
-    }),
-    (n.r = function(t) {
-      "undefined" != typeof Symbol &&
-        Symbol.toStringTag &&
-        Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
-        Object.defineProperty(t, "__esModule", { value: !0 });
-    }),
-    (n.t = function(t, e) {
-      if ((1 & e && (t = n(t)), 8 & e)) return t;
-      if (4 & e && "object" == typeof t && t && t.__esModule) return t;
-      var r = Object.create(null);
-      if (
-        (n.r(r),
-        Object.defineProperty(r, "default", { enumerable: !0, value: t }),
-        2 & e && "string" != typeof t)
-      )
-        for (var o in t)
-          n.d(
-            r,
-            o,
-            function(e) {
-              return t[e];
-            }.bind(null, o)
-          );
-      return r;
-    }),
-    (n.n = function(t) {
-      var e =
-        t && t.__esModule
-          ? function() {
-              return t.default;
-            }
-          : function() {
-              return t;
-            };
-      return n.d(e, "a", e), e;
-    }),
-    (n.o = function(t, e) {
-      return Object.prototype.hasOwnProperty.call(t, e);
-    }),
-    (n.p = ""),
-    n((n.s = 2));
-})([
-  function(t, e) {
-    t.exports = React;
-  },
-  function(t, e) {
-    t.exports = ReactDOM;
-  },
-  function(t, e, n) {
-    "use strict";
-    n.r(e);
-    var r = n(0),
-      o = n.n(r),
-      u = n(1),
-      c = n.n(u);
-    function i(t, e) {
-      (t.prototype = Object.create(e.prototype)),
-        (t.prototype.constructor = t),
-        (t.__proto__ = e);
+
+  _createClass(MyApp, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__[/* BrowserRouter */ "a"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__[/* Route */ "b"], null));
     }
-    (function(t) {
-      function e(e) {
-        var n;
-        return ((n = t.call(this, e) || this).history = "hash"), n;
-      }
-      return (
-        i(e, t),
-        (e.prototype.render = function() {
-          return o.a.createElement("p", null, "Hash Router");
-        }),
-        e
-      );
-    })(o.a.Component).propTypes = {};
-    var f = (function(t) {
-      function e(e) {
-        var n;
-        return ((n = t.call(this, e) || this).history = "browser"), n;
-      }
-      return (
-        i(e, t),
-        (e.prototype.render = function() {
-          return o.a.createElement("p", null, "Browser Router");
-        }),
-        e
-      );
-    })(o.a.Component);
-    function p(t) {
-      return (p =
-        "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-          ? function(t) {
-              return typeof t;
-            }
-          : function(t) {
-              return t &&
-                "function" == typeof Symbol &&
-                t.constructor === Symbol &&
-                t !== Symbol.prototype
-                ? "symbol"
-                : typeof t;
-            })(t);
-    }
-    function a(t, e) {
-      for (var n = 0; n < e.length; n++) {
-        var r = e[n];
-        (r.enumerable = r.enumerable || !1),
-          (r.configurable = !0),
-          "value" in r && (r.writable = !0),
-          Object.defineProperty(t, r.key, r);
-      }
-    }
-    function l(t, e) {
-      return !e || ("object" !== p(e) && "function" != typeof e)
-        ? (function(t) {
-            if (void 0 === t)
-              throw new ReferenceError(
-                "this hasn't been initialised - super() hasn't been called"
-              );
-            return t;
-          })(t)
-        : e;
-    }
-    function y(t) {
-      return (y = Object.setPrototypeOf
-        ? Object.getPrototypeOf
-        : function(t) {
-            return t.__proto__ || Object.getPrototypeOf(t);
-          })(t);
-    }
-    function s(t, e) {
-      return (s =
-        Object.setPrototypeOf ||
-        function(t, e) {
-          return (t.__proto__ = e), t;
-        })(t, e);
-    }
-    f.propTypes = {};
-    var b = (function(t) {
-      function e() {
-        return (
-          (function(t, e) {
-            if (!(t instanceof e))
-              throw new TypeError("Cannot call a class as a function");
-          })(this, e),
-          l(this, y(e).apply(this, arguments))
-        );
-      }
-      return (
-        (function(t, e) {
-          if ("function" != typeof e && null !== e)
-            throw new TypeError(
-              "Super expression must either be null or a function"
-            );
-          (t.prototype = Object.create(e && e.prototype, {
-            constructor: { value: t, writable: !0, configurable: !0 }
-          })),
-            e && s(t, e);
-        })(e, o.a.Component),
-        (function(t, e, n) {
-          e && a(t.prototype, e), n && a(t, n);
-        })(e, [
-          {
-            key: "render",
-            value: function() {
-              return o.a.createElement(f, null);
-            }
-          }
-        ]),
-        e
-      );
-    })();
-    c.a.render(o.a.createElement(b, null), document.getElementById("app"));
+  }]);
+
+  return MyApp;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MyApp, null), document.getElementById('app'));
+
+/***/ }),
+
+/***/ "./packages/history/history.js":
+/*!*************************************!*\
+  !*** ./packages/history/history.js ***!
+  \*************************************/
+/*! exports provided: createHashHistory, createBrowserHistory */
+/*! exports used: createBrowserHistory, createHashHistory */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return createHashHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createBrowserHistory; });
+function createHashHistory() {
+  return "hash";
+}
+
+function createBrowserHistory() {
+  return "browser";
+}
+
+
+
+/***/ }),
+
+/***/ "./packages/react-router/react-router.js":
+/*!***********************************************!*\
+  !*** ./packages/react-router/react-router.js ***!
+  \***********************************************/
+/*! exports provided: HashRouter, BrowserRouter, Route */
+/*! exports used: BrowserRouter, Route */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export HashRouter */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BrowserRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Route; });
+/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! history */ "./packages/history/history.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var HashRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(HashRouter, _React$Component);
+
+  function HashRouter(props) {
+    var _this;
+
+    _this = _React$Component.call(this, props) || this;
+    _this.history = Object(history__WEBPACK_IMPORTED_MODULE_0__[/* createHashHistory */ "b"])();
+    return _this;
   }
-]);
+
+  var _proto = HashRouter.prototype;
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Hash Router");
+  };
+
+  return HashRouter;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+HashRouter.propTypes = {};
+
+var BrowserRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(BrowserRouter, _React$Component);
+
+  function BrowserRouter(props) {
+    var _this;
+
+    _this = _React$Component.call(this, props) || this;
+    _this.history = Object(history__WEBPACK_IMPORTED_MODULE_0__[/* createBrowserHistory */ "a"])();
+    return _this;
+  }
+
+  var _proto = BrowserRouter.prototype;
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Browser Router");
+  };
+
+  return BrowserRouter;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+BrowserRouter.propTypes = {};
+
+var Route =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Route, _React$Component);
+
+  function Route() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  var _proto = Route.prototype;
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Route");
+  };
+
+  return Route;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+Route.propTypes = {};
+
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/*! no static exports found */
+/*! exports used: default */
+/***/ (function(module, exports) {
+
+module.exports = React;
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/*! no static exports found */
+/*! exports used: default */
+/***/ (function(module, exports) {
+
+module.exports = ReactDOM;
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=main.js.map

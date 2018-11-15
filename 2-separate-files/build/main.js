@@ -137,7 +137,7 @@ function (_React$Component) {
   _createClass(MyApp, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__[/* BrowserRouter */ "a"], null);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__[/* BrowserRouter */ "a"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_2__[/* Route */ "b"], null));
     }
   }]);
 
@@ -295,18 +295,64 @@ HashRouter.propTypes = {};
 
 /***/ }),
 
+/***/ "./packages/react-router/esm/Route.js":
+/*!********************************************!*\
+  !*** ./packages/react-router/esm/Route.js ***!
+  \********************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+
+
+var Route =
+/*#__PURE__*/
+function (_React$Component) {
+  _inheritsLoose(Route, _React$Component);
+
+  function Route() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  var _proto = Route.prototype;
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Route");
+  };
+
+  return Route;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+Route.propTypes = {};
+/* harmony default export */ __webpack_exports__["a"] = (Route);
+
+/***/ }),
+
 /***/ "./packages/react-router/esm/index.js":
 /*!********************************************!*\
   !*** ./packages/react-router/esm/index.js ***!
   \********************************************/
-/*! exports provided: HashRouter, BrowserRouter */
-/*! exports used: BrowserRouter */
+/*! exports provided: HashRouter, BrowserRouter, Route */
+/*! exports used: BrowserRouter, Route */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var _HashRouter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HashRouter */ "./packages/react-router/esm/HashRouter.js");
 /* harmony import */ var _BrowserRouter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BrowserRouter */ "./packages/react-router/esm/BrowserRouter.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _BrowserRouter__WEBPACK_IMPORTED_MODULE_1__["a"]; });
+
+/* harmony import */ var _Route__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Route */ "./packages/react-router/esm/Route.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "b", function() { return _Route__WEBPACK_IMPORTED_MODULE_2__["a"]; });
+
 
 
 
