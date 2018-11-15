@@ -6,8 +6,6 @@ class Route extends React.Component {
   }
 }
 
-if (__DEV__) {
-  Route.propTypes = {};
-}
+Route.propTypes = {};
 
 export default Route;

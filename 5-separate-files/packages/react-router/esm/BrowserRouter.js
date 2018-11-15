@@ -29,8 +29,5 @@ function (_React$Component) {
   return BrowserRouter;
 }(React.Component);
 
-if (process.env.NODE_ENV !== "production") {
-  BrowserRouter.propTypes = {};
-}
-
+BrowserRouter.propTypes = {};
 export default BrowserRouter;

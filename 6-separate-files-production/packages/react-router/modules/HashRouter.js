@@ -9,8 +9,6 @@ class HashRouter extends React.Component {
   }
 }
 
-if (__DEV__) {
-  HashRouter.propTypes = {};
-}
+HashRouter.propTypes = {};
 
 export default HashRouter;

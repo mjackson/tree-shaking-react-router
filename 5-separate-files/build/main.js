@@ -247,10 +247,7 @@ function (_React$Component) {
   return BrowserRouter;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-if (true) {
-  BrowserRouter.propTypes = {};
-}
-
+BrowserRouter.propTypes = {};
 /* harmony default export */ __webpack_exports__["a"] = (BrowserRouter);
 
 /***/ }),
@@ -301,10 +298,7 @@ function (_React$Component) {
   return HashRouter;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-if (true) {
-  HashRouter.propTypes = {};
-}
-
+HashRouter.propTypes = {};
 /* unused harmony default export */ var _unused_webpack_default_export = (HashRouter);
 
 /***/ }),
@@ -346,10 +340,7 @@ function (_React$Component) {
   return Route;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-if (true) {
-  Route.propTypes = {};
-}
-
+Route.propTypes = {};
 /* harmony default export */ __webpack_exports__["a"] = (Route);
 
 /***/ }),

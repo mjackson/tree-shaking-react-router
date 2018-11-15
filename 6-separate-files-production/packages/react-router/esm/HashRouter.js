@@ -29,8 +29,5 @@ function (_React$Component) {
   return HashRouter;
 }(React.Component);
 
-if (process.env.NODE_ENV !== "production") {
-  HashRouter.propTypes = {};
-}
-
+HashRouter.propTypes = {};
 export default HashRouter;

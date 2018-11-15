@@ -20,8 +20,5 @@ function (_React$Component) {
   return Route;
 }(React.Component);
 
-if (process.env.NODE_ENV !== "production") {
-  Route.propTypes = {};
-}
-
+Route.propTypes = {};
 export default Route;

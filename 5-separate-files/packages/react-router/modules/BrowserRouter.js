@@ -9,8 +9,6 @@ class BrowserRouter extends React.Component {
   }
 }
 
-if (__DEV__) {
-  BrowserRouter.propTypes = {};
-}
+BrowserRouter.propTypes = {};
 
 export default BrowserRouter;

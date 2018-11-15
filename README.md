@@ -40,9 +40,11 @@ However, although webpack knows `HashRouter` isn't being used, it still leaves i
 
 #### `2-rollup-bundle-production` ✅
 
-In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle since it is technically "dead code" ... and it did! [The output bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/build/main.js) contains no traces of `HashRouter`!
+In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle since it is technically "dead code". I also use the `__DEV__` flag to avoid adding `static propTypes` declarations to our React components in production.
 
-Note [the `#__PURE__` marks in the `react-router.js` package bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/packages/react-router/react-router.js). These allow those functions to be stripped out of the app's output bundle if they are not used.
+It works! [The output bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/build/main.js) contains no traces of `HashRouter`!
+
+Note: [the `#__PURE__` marks in the `react-router.js` package bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/packages/react-router/react-router.js). These allow those functions to be stripped out of the app's output bundle if they are not used.
 
 #### `3-rollup-bundle-no-classes` ❌
 
@@ -50,7 +52,9 @@ This is essentially the same as 1 but the dependencies use plain functions inste
 
 #### `4-rollup-bundle-no-classes-production` ❌
 
-This is essentially the same as 2 but the dependencies use plain functions instead of ES class syntax, but unlike in 2 webpack is not able to tree-shake `HashRouter`. This is because [the dependency bundle](https://github.com/mjackson/tree-shaking/blob/master/4-rollup-bundle-no-classes-production/packages/react-router/react-router.js) does not include `#__PURE__` iifes when we write classes by hand.
+This is essentially the same as 2 but the dependencies use plain functions instead of ES class syntax. However, unlike 2 webpack is not able to tree-shake `HashRouter` this time.
+
+This is because [the dependency bundle](https://github.com/mjackson/tree-shaking/blob/master/4-rollup-bundle-no-classes-production/packages/react-router/react-router.js) does not include `#__PURE__` iifes when we write classes by hand.
 
 #### `5-separate-files` ❌
 
@@ -78,8 +82,6 @@ However, a quick inspection of the app's output bundle reveals that Babel's `inh
 
 ### Conclusion
 
-Still need to try other options.
+If you ship a single bundle with Babel + Rollup and you want your library to be tree-shakeable, do NOT use `static` properties on any of your classes.
 
-It looks like webpack doesn't actually do any "tree-shaking", but instead inserts annotations in the output bundle that allow uglify to assume the iife's that create classes are pure and therefore remove them from the codebase if that `export` is not used anywhere.
-
-This may be an oversimplification, and there may in fact be something else going on in webpack's production mode that I don't know about.
+If you must use `static`s, distribute your library as separate files instead and it will still be tree-shakeable but you'll have duplicate babel helpers in the output.

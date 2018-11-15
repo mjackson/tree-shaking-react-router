@@ -86,6 +86,8 @@
         e
       );
     })(o.a.Component);
+    i.propTypes = {};
+    var p = i;
     var f = (function(t) {
       function e() {
         return t.apply(this, arguments) || this;
@@ -102,8 +104,10 @@
         e
       );
     })(o.a.Component);
-    function p(t) {
-      return (p =
+    f.propTypes = {};
+    var a = f;
+    function l(t) {
+      return (l =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
           ? function(t) {
               return typeof t;
@@ -117,7 +121,7 @@
                 : typeof t;
             })(t);
     }
-    function a(t, e) {
+    function y(t, e) {
       for (var n = 0; n < e.length; n++) {
         var r = e[n];
         (r.enumerable = r.enumerable || !1),
@@ -126,8 +130,8 @@
           Object.defineProperty(t, r.key, r);
       }
     }
-    function l(t, e) {
-      return !e || ("object" !== p(e) && "function" != typeof e)
+    function s(t, e) {
+      return !e || ("object" !== l(e) && "function" != typeof e)
         ? (function(t) {
             if (void 0 === t)
               throw new ReferenceError(
@@ -137,28 +141,28 @@
           })(t)
         : e;
     }
-    function y(t) {
-      return (y = Object.setPrototypeOf
+    function b(t) {
+      return (b = Object.setPrototypeOf
         ? Object.getPrototypeOf
         : function(t) {
             return t.__proto__ || Object.getPrototypeOf(t);
           })(t);
     }
-    function s(t, e) {
-      return (s =
+    function d(t, e) {
+      return (d =
         Object.setPrototypeOf ||
         function(t, e) {
           return (t.__proto__ = e), t;
         })(t, e);
     }
-    var b = (function(t) {
+    var m = (function(t) {
       function e() {
         return (
           (function(t, e) {
             if (!(t instanceof e))
               throw new TypeError("Cannot call a class as a function");
           })(this, e),
-          l(this, y(e).apply(this, arguments))
+          s(this, b(e).apply(this, arguments))
         );
       }
       return (
@@ -170,22 +174,22 @@
           (t.prototype = Object.create(e && e.prototype, {
             constructor: { value: t, writable: !0, configurable: !0 }
           })),
-            e && s(t, e);
+            e && d(t, e);
         })(e, o.a.Component),
         (function(t, e, n) {
-          e && a(t.prototype, e), n && a(t, n);
+          e && y(t.prototype, e), n && y(t, n);
         })(e, [
           {
             key: "render",
             value: function() {
-              return o.a.createElement(i, null, o.a.createElement(f, null));
+              return o.a.createElement(p, null, o.a.createElement(a, null));
             }
           }
         ]),
         e
       );
     })();
-    c.a.render(o.a.createElement(b, null), document.getElementById("app"));
+    c.a.render(o.a.createElement(m, null), document.getElementById("app"));
   }
 ]);
 //# sourceMappingURL=main.js.map
