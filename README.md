@@ -42,7 +42,7 @@ However, although webpack knows `HashRouter` isn't being used, it still leaves i
 
 In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle since it is technically "dead code" ... and it did! [The output bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/build/main.js) contains no traces of `HashRouter`!
 
-Note the `#__PURE__` marks in the `react-router.js` package bundle. These allow those functions to be stripped out of the app's output bundle if they are not used.
+Note [the `#__PURE__` marks in the `react-router.js` package bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/packages/react-router/react-router.js). These allow those functions to be stripped out of the app's output bundle if they are not used.
 
 #### `3-rollup-bundle-no-classes` ❌
 
