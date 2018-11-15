@@ -80,8 +80,10 @@ And this time ... it works! There are no traces of `createHashHistory` or `HashR
 
 However, a quick inspection of the app's output bundle reveals that Babel's `inheritsLoose` helper appears twice. In fact, it will appear as many times as we have a `class` that can't be stripped from the output bundle. :/ This was the main advantage from using Rollup in our earlier trials.
 
+Note that we also don't have to use the `__DEV__` flag to strip the `static propTypes` in this case. This is an advantage over 2 when you must use statics for some reason.
+
 ### Conclusion
 
-If you ship a single bundle with Babel + Rollup and you want your library to be tree-shakeable, do NOT use `static` properties on any of your classes.
+If you ship a single bundle with Babel + Rollup and you want your library to be tree-shakeable, do NOT use `static` properties on any of your classes (2).
 
-If you must use `static`s, distribute your library as separate files instead and it will still be tree-shakeable but you'll have duplicate babel helpers in the output.
+If you must use `static`s, distribute your library as separate files instead and it will still be tree-shakeable but you'll have duplicate babel helpers in the output (6).
