@@ -22,7 +22,7 @@ Also, every dependency uses `{ "sideEffects": false }` in its `package.json` to 
 
 In this test case I used [Rollup](https://rollupjs.org/) to bundle all ES modules in the dependencies into a single module (`history.js` and `react-router.js`).
 
-We run webpack in development mode and used `{ optimization: { usedExports: true } }` in our config so we could see comments in the output bundle about which exports were being used and which ones weren't. Toward the end of the output bundle we see:
+We run webpack in development mode and used `{ optimization: { usedExports: true } }` in our config so we could see comments in the output bundle about which exports were being used and which ones weren't. Toward the end of [the output bundle](https://github.com/mjackson/tree-shaking/blob/master/1-rollup-bundle/build/main.js) we see:
 
 ```js
 /*!***********************************************!*\
@@ -40,13 +40,15 @@ However, although webpack knows `HashRouter` isn't being used, it still leaves i
 
 #### `2-rollup-bundle-production`
 
-In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle since it is technically "dead code". Unfortunately, it didn't. :/ Onward!
+In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle since it is technically "dead code". Unfortunately, [the output bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/build/main.js) still contains traces of hash history. :/
+
+Onward!
 
 #### `3-separate-files`
 
 This test case compiles dependencies using Babel directly into several files, so each package has an `esm` directory with the build. webpack is run in development mode so we can inspect the output more easily.
 
-The tests still fail in this case (webpack hasn't done any tree shaking), but we some familiar lines in the app's output bundle:
+The tests still fail in this case (webpack hasn't done any tree shaking), but we some familiar lines in [the output bundle](https://github.com/mjackson/tree-shaking/blob/master/3-separate-files/build/main.js):
 
 ```js
 /*!********************************************!*\
@@ -60,7 +62,7 @@ webpack still knows that `HashRouter` is unused, but it still leaves it in the o
 
 #### `4-separate-files-production`
 
-This test case is the same as the previous one, except this time webpack runs in production mode. In this mode, webpack uses uglify to minify the source code.
+This test case is the same as the previous one, except this time webpack runs in production mode. In this mode, webpack uses [uglify](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) to minify the source code.
 
 And this time ... it works! There are no traces of `createHashHistory` or `HashRouter` in the app's output bundle.
 
@@ -68,7 +70,7 @@ However, a quick inspection of the app's output bundle reveals that Babel's `inh
 
 ### Conclusion
 
-Still needs to try other options.
+Still need to try other options.
 
 It looks like webpack doesn't actually do any "tree-shaking", but instead inserts annotations in the output bundle that allow uglify to assume the iife's that create classes are pure and therefore remove them from the codebase if that `export` is not used anywhere.
 
