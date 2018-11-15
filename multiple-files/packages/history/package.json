@@ -1,0 +1,5 @@
+{
+  "name": "history",
+  "module": "esm/index.js",
+  "sideEffects": false
+}
