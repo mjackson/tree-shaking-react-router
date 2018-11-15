@@ -1,16 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _history = require("history");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31,6 +18,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+import React from 'react';
+import { createHashHistory } from 'history';
+
 var HashRouter =
 /*#__PURE__*/
 function (_React$Component) {
@@ -42,21 +32,20 @@ function (_React$Component) {
     _classCallCheck(this, HashRouter);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(HashRouter).call(this, props));
-    _this.history = (0, _history.createHashHistory)();
+    _this.history = createHashHistory();
     return _this;
   }
 
   _createClass(HashRouter, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("p", null, "Hash Router");
+      return React.createElement("p", null, "Hash Router");
     }
   }]);
 
   return HashRouter;
-}(_react.default.Component);
+}(React.Component);
 
 _defineProperty(HashRouter, "propTypes", {});
 
-var _default = HashRouter;
-exports.default = _default;
+export default HashRouter;

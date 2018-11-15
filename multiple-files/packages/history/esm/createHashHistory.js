@@ -1,10 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createHashHistory;
-
-function createHashHistory() {
+export default function createHashHistory() {
   return "hash";
 }
