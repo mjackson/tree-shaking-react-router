@@ -1,11 +1,9 @@
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
 import React from 'react';
 
 var Route =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(Route, _React$Component);
+  babelHelpers.inheritsLoose(Route, _React$Component);
 
   function Route() {
     return _React$Component.apply(this, arguments) || this;

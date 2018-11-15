@@ -86,6 +86,38 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "../node_modules/webpack/buildin/global.js":
+/*!*************************************************!*\
+  !*** ../node_modules/webpack/buildin/global.js ***!
+  \*************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
 /***/ "./app.js":
 /*!****************!*\
   !*** ./app.js ***!
@@ -212,11 +244,8 @@ function createHashHistory() {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! history */ "./packages/history/esm/index.js");
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
+/* harmony import */ var _babelHelpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./babelHelpers */ "./packages/react-router/esm/babelHelpers.js");
+/* harmony import */ var _babelHelpers__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babelHelpers__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
@@ -224,7 +253,7 @@ function _inheritsLoose(subClass, superClass) {
 var BrowserRouter =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(BrowserRouter, _React$Component);
+  babelHelpers.inheritsLoose(BrowserRouter, _React$Component);
 
   function BrowserRouter() {
     var _this;
@@ -263,11 +292,8 @@ BrowserRouter.propTypes = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! history */ "./packages/history/esm/index.js");
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
+/* harmony import */ var _babelHelpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./babelHelpers */ "./packages/react-router/esm/babelHelpers.js");
+/* harmony import */ var _babelHelpers__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babelHelpers__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
@@ -275,7 +301,7 @@ function _inheritsLoose(subClass, superClass) {
 var HashRouter =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(HashRouter, _React$Component);
+  babelHelpers.inheritsLoose(HashRouter, _React$Component);
 
   function HashRouter() {
     var _this;
@@ -314,18 +340,15 @@ HashRouter.propTypes = {};
 "use strict";
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
+/* harmony import */ var _babelHelpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./babelHelpers */ "./packages/react-router/esm/babelHelpers.js");
+/* harmony import */ var _babelHelpers__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babelHelpers__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 var Route =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(Route, _React$Component);
+  babelHelpers.inheritsLoose(Route, _React$Component);
 
   function Route() {
     return _React$Component.apply(this, arguments) || this;
@@ -342,6 +365,28 @@ function (_React$Component) {
 
 Route.propTypes = {};
 /* harmony default export */ __webpack_exports__["a"] = (Route);
+
+/***/ }),
+
+/***/ "./packages/react-router/esm/babelHelpers.js":
+/*!***************************************************!*\
+  !*** ./packages/react-router/esm/babelHelpers.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {(function (global) {
+  var babelHelpers = global.babelHelpers = {};
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+
+  babelHelpers.inheritsLoose = _inheritsLoose;
+})(typeof global === "undefined" ? self : global);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/webpack/buildin/global.js */ "../node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 

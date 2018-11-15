@@ -1,12 +1,11 @@
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
 import React from 'react';
 import { createHashHistory } from 'history';
+import './babelHelpers';
 
 var HashRouter =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(HashRouter, _React$Component);
+  babelHelpers.inheritsLoose(HashRouter, _React$Component);
 
   function HashRouter() {
     var _this;

@@ -1,12 +1,10 @@
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
 import React from 'react';
 import { createBrowserHistory } from 'history';
 
 var BrowserRouter =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(BrowserRouter, _React$Component);
+  babelHelpers.inheritsLoose(BrowserRouter, _React$Component);
 
   function BrowserRouter() {
     var _this;

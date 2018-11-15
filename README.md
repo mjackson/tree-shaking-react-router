@@ -60,6 +60,8 @@ This is because [the dependency bundle](https://github.com/mjackson/tree-shaking
 
 This test case compiles dependencies using Babel directly into several files, so each package has an `esm` directory with the build. webpack is run in development mode so we can inspect the output more easily.
 
+In order to avoid getting duplicate copies of Babel's helpers in our dependencies when they are bundled with our app, we need to use `@babel/plugin-external-helpers` and generate a `babelHelpers.js` file with the helper functions we will need and `import` that into the modules that need it. This is a little more work, but not too much.
+
 The tests still fail in this case (webpack hasn't done any tree shaking), but we some familiar lines in [the output bundle](https://github.com/mjackson/tree-shaking/blob/master/3-separate-files/build/main.js):
 
 ```js
@@ -70,15 +72,13 @@ The tests still fail in this case (webpack hasn't done any tree shaking), but we
 /*! exports used: BrowserRouter, Route */
 ```
 
-webpack still knows that `HashRouter` is unused, but it still leaves it in the output bundle.
+webpack still knows that `HashRouter` is unused, but it still leaves it in the output.
 
 #### `6-separate-files-production` ✅
 
-This test case is the same as the previous one, except this time webpack runs in production mode. In this mode, webpack uses [uglify](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) to minify the source code.
+This test case is the same as 5, except this time webpack runs in production mode. In this mode, webpack uses [uglify](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) to minify the source code.
 
 And this time ... it works! There are no traces of `createHashHistory` or `HashRouter` in the app's output bundle.
-
-However, a quick inspection of the app's output bundle reveals that Babel's `inheritsLoose` helper appears twice. In fact, it will appear as many times as we have a `class` that can't be stripped from the output bundle. :/ This was the main advantage from using Rollup in our earlier trials.
 
 Note that we also don't have to use the `__DEV__` flag to strip the `static propTypes` in this case. This is an advantage over 2 when you must use statics for some reason.
 
@@ -86,4 +86,4 @@ Note that we also don't have to use the `__DEV__` flag to strip the `static prop
 
 If you ship a single bundle with Babel + Rollup and you want your library to be tree-shakeable, do NOT use `static` properties on any of your classes (2).
 
-If you must use `static`s, distribute your library as separate files instead and it will still be tree-shakeable but you'll have duplicate babel helpers in the output (6).
+If you must use `static`s, distribute your library as separate files instead (and `import` your own `babelHelpers.js` file) and it will still be tree-shakeable (6).
