@@ -50,7 +50,7 @@ This is essentially the same as 1 but the dependencies use plain functions inste
 
 #### `4-rollup-bundle-no-classes-production` ❌
 
-This is essentially the same as 2 but the dependencies use plain functions instead of ES class syntax, but unlike in 2 webpack is not able to tree-shake `HashRouter`. This is because the dependency bundle iifes are not marked `#__PURE__` when we write classes by hand.
+This is essentially the same as 2 but the dependencies use plain functions instead of ES class syntax, but unlike in 2 webpack is not able to tree-shake `HashRouter`. This is because [the dependency bundle](https://github.com/mjackson/tree-shaking/blob/master/4-rollup-bundle-no-classes-production/packages/react-router/react-router.js) does not include `#__PURE__` iifes when we write classes by hand.
 
 #### `5-separate-files` ❌
 
