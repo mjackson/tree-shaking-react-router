@@ -18,7 +18,7 @@ Also, every dependency uses `{ "sideEffects": false }` in its `package.json` to 
 
 ### Results
 
-#### `1-rollup-bundle`
+#### `1-rollup-bundle` ❌
 
 In this test case I used [Rollup](https://rollupjs.org/) to bundle all ES modules in the dependencies into a single module (`history.js` and `react-router.js`).
 
@@ -38,13 +38,21 @@ We would prefer to distribute a single file for each build, mainly because it's 
 
 However, although webpack knows `HashRouter` isn't being used, it still leaves it in the app's output bundle when we use this strategy. Let's try again.
 
-#### `2-rollup-bundle-production`
+#### `2-rollup-bundle-production` ✅
 
-In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle since it is technically "dead code". Unfortunately, [the output bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/build/main.js) still contains traces of hash history. :/
+In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle since it is technically "dead code" ... and it did! [The output bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/build/main.js) contains no traces of `HashRouter`!
 
-Onward!
+Note the `#__PURE__` marks in the `react-router.js` package bundle. These allow those functions to be stripped out of the app's output bundle if they are not used.
 
-#### `3-separate-files`
+#### `3-rollup-bundle-no-classes` ❌
+
+This is essentially the same as 1 but the dependencies use plain functions instead of ES class syntax. It was suggested by some that ES classes were responsible for us not being able to do tree-shaking properly. Turns out there is no difference.
+
+#### `4-rollup-bundle-no-classes-production` ❌
+
+This is essentially the same as 2 but the dependencies use plain functions instead of ES class syntax, but unlike in 2 webpack is not able to tree-shake `HashRouter`. This is because the dependency bundle iifes are not marked `#__PURE__` when we write classes by hand.
+
+#### `5-separate-files` ❌
 
 This test case compiles dependencies using Babel directly into several files, so each package has an `esm` directory with the build. webpack is run in development mode so we can inspect the output more easily.
 
@@ -58,9 +66,9 @@ The tests still fail in this case (webpack hasn't done any tree shaking), but we
 /*! exports used: BrowserRouter, Route */
 ```
 
-webpack still knows that `HashRouter` is unused, but it still leaves it in the output bundle. One more try?
+webpack still knows that `HashRouter` is unused, but it still leaves it in the output bundle.
 
-#### `4-separate-files-production`
+#### `6-separate-files-production` ✅
 
 This test case is the same as the previous one, except this time webpack runs in production mode. In this mode, webpack uses [uglify](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) to minify the source code.
 

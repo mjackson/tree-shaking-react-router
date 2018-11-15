@@ -1,11 +1,13 @@
 import React from 'react';
 
 class Route extends React.Component {
-  static propTypes = {};
-
   render() {
     return <p>Route</p>;
   }
+}
+
+if (__DEV__) {
+  Route.propTypes = {};
 }
 
 export default Route;

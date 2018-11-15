@@ -7,10 +7,14 @@ var HashRouter =
 function (_React$Component) {
   _inheritsLoose(HashRouter, _React$Component);
 
-  function HashRouter(props) {
+  function HashRouter() {
     var _this;
 
-    _this = _React$Component.call(this, props) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
     _this.history = createHashHistory();
     return _this;
   }
@@ -24,17 +28,23 @@ function (_React$Component) {
   return HashRouter;
 }(React.Component);
 
-HashRouter.propTypes = {};
+if (process.env.NODE_ENV !== "production") {
+  HashRouter.propTypes = {};
+}
 
 var BrowserRouter =
 /*#__PURE__*/
 function (_React$Component) {
   _inheritsLoose(BrowserRouter, _React$Component);
 
-  function BrowserRouter(props) {
+  function BrowserRouter() {
     var _this;
 
-    _this = _React$Component.call(this, props) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
     _this.history = createBrowserHistory();
     return _this;
   }
@@ -48,7 +58,9 @@ function (_React$Component) {
   return BrowserRouter;
 }(React.Component);
 
-BrowserRouter.propTypes = {};
+if (process.env.NODE_ENV !== "production") {
+  BrowserRouter.propTypes = {};
+}
 
 var Route =
 /*#__PURE__*/
@@ -68,6 +80,8 @@ function (_React$Component) {
   return Route;
 }(React.Component);
 
-Route.propTypes = {};
+if (process.env.NODE_ENV !== "production") {
+  Route.propTypes = {};
+}
 
 export { HashRouter, BrowserRouter, Route };

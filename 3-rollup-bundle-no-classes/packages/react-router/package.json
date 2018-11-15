@@ -1,0 +1,5 @@
+{
+  "name": "react-router",
+  "module": "react-router.js",
+  "sideEffects": false
+}

@@ -70,23 +70,15 @@
         (t.prototype.constructor = t),
         (t.__proto__ = e);
     }
-    (function(t) {
-      function e(e) {
-        var n;
-        return ((n = t.call(this, e) || this).history = "hash"), n;
-      }
-      return (
-        i(e, t),
-        (e.prototype.render = function() {
-          return o.a.createElement("p", null, "Hash Router");
-        }),
-        e
-      );
-    })(o.a.Component).propTypes = {};
+    o.a.Component;
     var f = (function(t) {
-      function e(e) {
-        var n;
-        return ((n = t.call(this, e) || this).history = "browser"), n;
+      function e() {
+        for (var e, n = arguments.length, r = new Array(n), o = 0; o < n; o++)
+          r[o] = arguments[o];
+        return (
+          ((e = t.call.apply(t, [this].concat(r)) || this).history = "browser"),
+          e
+        );
       }
       return (
         i(e, t),
@@ -96,8 +88,7 @@
         e
       );
     })(o.a.Component);
-    f.propTypes = {};
-    var p = (function(t) {
+    var a = (function(t) {
       function e() {
         return t.apply(this, arguments) || this;
       }
@@ -109,8 +100,8 @@
         e
       );
     })(o.a.Component);
-    function a(t) {
-      return (a =
+    function l(t) {
+      return (l =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
           ? function(t) {
               return typeof t;
@@ -124,7 +115,7 @@
                 : typeof t;
             })(t);
     }
-    function l(t, e) {
+    function p(t, e) {
       for (var n = 0; n < e.length; n++) {
         var r = e[n];
         (r.enumerable = r.enumerable || !1),
@@ -134,7 +125,7 @@
       }
     }
     function y(t, e) {
-      return !e || ("object" !== a(e) && "function" != typeof e)
+      return !e || ("object" !== l(e) && "function" != typeof e)
         ? (function(t) {
             if (void 0 === t)
               throw new ReferenceError(
@@ -158,7 +149,6 @@
           return (t.__proto__ = e), t;
         })(t, e);
     }
-    p.propTypes = {};
     var m = (function(t) {
       function e() {
         return (
@@ -181,12 +171,12 @@
             e && b(t, e);
         })(e, o.a.Component),
         (function(t, e, n) {
-          e && l(t.prototype, e), n && l(t, n);
+          e && p(t.prototype, e), n && p(t, n);
         })(e, [
           {
             key: "render",
             value: function() {
-              return o.a.createElement(f, null, o.a.createElement(p, null));
+              return o.a.createElement(f, null, o.a.createElement(a, null));
             }
           }
         ]),

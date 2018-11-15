@@ -1,0 +1,5 @@
+{
+  "name": "history",
+  "module": "history.js",
+  "sideEffects": false
+}

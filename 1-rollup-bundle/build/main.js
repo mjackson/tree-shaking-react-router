@@ -214,10 +214,14 @@ var HashRouter =
 function (_React$Component) {
   Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(HashRouter, _React$Component);
 
-  function HashRouter(props) {
+  function HashRouter() {
     var _this;
 
-    _this = _React$Component.call(this, props) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
     _this.history = Object(history__WEBPACK_IMPORTED_MODULE_0__[/* createHashHistory */ "b"])();
     return _this;
   }
@@ -231,17 +235,23 @@ function (_React$Component) {
   return HashRouter;
 }(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
 
-HashRouter.propTypes = {};
+if (true) {
+  HashRouter.propTypes = {};
+}
 
 var BrowserRouter =
 /*#__PURE__*/
 function (_React$Component) {
   Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(BrowserRouter, _React$Component);
 
-  function BrowserRouter(props) {
+  function BrowserRouter() {
     var _this;
 
-    _this = _React$Component.call(this, props) || this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
     _this.history = Object(history__WEBPACK_IMPORTED_MODULE_0__[/* createBrowserHistory */ "a"])();
     return _this;
   }
@@ -255,7 +265,9 @@ function (_React$Component) {
   return BrowserRouter;
 }(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
 
-BrowserRouter.propTypes = {};
+if (true) {
+  BrowserRouter.propTypes = {};
+}
 
 var Route =
 /*#__PURE__*/
@@ -275,7 +287,10 @@ function (_React$Component) {
   return Route;
 }(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
 
-Route.propTypes = {};
+if (true) {
+  Route.propTypes = {};
+}
+
 
 
 /***/ }),

@@ -2,16 +2,15 @@ import React from 'react';
 import { createHashHistory } from 'history';
 
 class HashRouter extends React.Component {
-  static propTypes = {};
-
-  constructor(props) {
-    super(props);
-    this.history = createHashHistory();
-  }
+  history = createHashHistory();
 
   render() {
     return <p>Hash Router</p>;
   }
+}
+
+if (__DEV__) {
+  HashRouter.propTypes = {};
 }
 
 export default HashRouter;
