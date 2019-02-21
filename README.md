@@ -1,4 +1,4 @@
-This repo is an experiment to try and figure out how to best structure the React Router codebase in version 4.4 (and history version 4.8) so that we can get the benefits of [tree shaking](https://webpack.js.org/guides/tree-shaking/) when users bundle their apps with webpack.
+This repo is an experiment to try and figure out how to best structure the React Router codebase in version 4.4 (and history version 4.8) so that we can get the benefits of [tree shaking](https://webpack.js.org/guides/tree-shaking-react-router/) when users bundle their apps with webpack.
 
 ### Goal
 
@@ -22,7 +22,7 @@ Also, every dependency uses `{ "sideEffects": false }` in its `package.json` to 
 
 In this test case I used [Rollup](https://rollupjs.org/) to bundle all ES modules in the dependencies into a single module (`history.js` and `react-router.js`).
 
-I ran webpack in development mode and used `{ optimization: { usedExports: true } }` so we could see comments in the output bundle about which exports were being used and which ones weren't. Toward the end of [the output bundle](https://github.com/mjackson/tree-shaking/blob/master/1-rollup-bundle/build/main.js) we see:
+I ran webpack in development mode and used `{ optimization: { usedExports: true } }` so we could see comments in the output bundle about which exports were being used and which ones weren't. Toward the end of [the output bundle](https://github.com/mjackson/tree-shaking-react-router/blob/master/1-rollup-bundle/build/main.js) we see:
 
 ```js
 /*!***********************************************!*\
@@ -42,9 +42,9 @@ However, although webpack knows `HashRouter` isn't being used, it still leaves i
 
 In this test case I continued to use Rollup as before, but switched webpack into production mode, to see if this would be able to eliminate all traces of `HashRouter` from the app's output bundle. I also use the `__DEV__` flag to avoid adding `static propTypes` declarations to our React components in production.
 
-It works! [The output bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/build/main.js) contains no traces of `HashRouter`.
+It works! [The output bundle](https://github.com/mjackson/tree-shaking-react-router/blob/master/2-rollup-bundle-production/build/main.js) contains no traces of `HashRouter`.
 
-Note: [the `#__PURE__` marks in the `react-router.js` package bundle](https://github.com/mjackson/tree-shaking/blob/master/2-rollup-bundle-production/packages/react-router/react-router.js). These allow those functions to be stripped out of the app's output bundle if they are not used. This is not technically tree-shaking, but rather dead code elimination performed by uglify when webpack is in production mode.
+Note: [the `#__PURE__` marks in the `react-router.js` package bundle](https://github.com/mjackson/tree-shaking-react-router/blob/master/2-rollup-bundle-production/packages/react-router/react-router.js). These allow those functions to be stripped out of the app's output bundle if they are not used. This is not technically tree-shaking, but rather dead code elimination performed by uglify when webpack is in production mode.
 
 #### `3-rollup-bundle-no-classes` ❌
 
@@ -54,7 +54,7 @@ This is essentially the same as 1 but the dependencies use plain functions inste
 
 This is essentially the same as 2 but the dependencies use plain functions instead of ES class syntax. However, unlike 2 webpack is not able to get rid of `HashRouter` this time.
 
-This is because [the dependency bundle](https://github.com/mjackson/tree-shaking/blob/master/4-rollup-bundle-no-classes-production/packages/react-router/react-router.js) does not include `#__PURE__` iifes when we write classes by hand.
+This is because [the dependency bundle](https://github.com/mjackson/tree-shaking-react-router/blob/master/4-rollup-bundle-no-classes-production/packages/react-router/react-router.js) does not include `#__PURE__` iifes when we write classes by hand.
 
 #### `5-separate-files` ❌
 
@@ -62,7 +62,7 @@ This test case compiles dependencies using Babel directly into several files, so
 
 In order to avoid getting duplicate copies of Babel's helpers in our dependencies when they are bundled with our app, we need to use `@babel/plugin-external-helpers` and generate a `babelHelpers.js` file with the helper functions we will need and `import` that into the modules that need it. This is a little more work, but not much.
 
-The tests still fail in this case (webpack hasn't eliminated any code), but we some familiar lines in [the output bundle](https://github.com/mjackson/tree-shaking/blob/master/3-separate-files/build/main.js):
+The tests still fail in this case (webpack hasn't eliminated any code), but we some familiar lines in [the output bundle](https://github.com/mjackson/tree-shaking-react-router/blob/master/3-separate-files/build/main.js):
 
 ```js
 /*!********************************************!*\
